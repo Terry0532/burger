@@ -1,6 +1,6 @@
 {{#each burger}}
 {{#unless devoured}}
-<p>{{burger_name}}<button>devoure it!</button></p>
+<p>{{burger_name}}<button id="devoureIt" type="submit">devoure it!</button></p>
 {{/unless}}
 {{/each}}
 
@@ -11,7 +11,20 @@
 {{/each}}
 
 <form>
-    <label for="burgerName"></label><br>
-    <input type="text" id="burgerName" name="burgerName">
-    <button type="submit">submit</button>
+    <textarea name="burger" id="burgerName" cols="30" rows="10"></textarea>
+    <button id="submit" type="submit">submit</button>
 </form>
+
+<script>
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+
+        const burgerName = { burgerName: $("#burgerName").val() };
+
+        $.ajax("/api/burger", {
+            type: "POST",
+            data: burgerName
+        });
+        location.reload();
+    })
+</script>

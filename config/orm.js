@@ -10,8 +10,9 @@ const orm = {
             });
         });
     },
-    insertOne: function () {
-
+    insertOne: function (burgerName) {
+        const queryString = "INSERT INTO burger (burger_name, devoured) VALUES (?, 0);";
+        connection.query(queryString, burgerName);
     },
     updateOne: function () {
 

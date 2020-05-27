@@ -10,4 +10,8 @@ router.get("/", async function (req, res) {
     res.render("index", { burger: data });
 })
 
+router.post("/api/burger", function (req, res) {
+    burger.insertOne(req.body.burgerName);
+})
+
 module.exports = router;

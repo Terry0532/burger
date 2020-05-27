@@ -7,6 +7,9 @@ const burger = {
                 resolve(res);
             });
         })
+    },
+    insertOne: function (burgerName) {
+        orm.insertOne(burgerName);
     }
 };
 
