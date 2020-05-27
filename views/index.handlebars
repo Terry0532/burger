@@ -1,1 +1,17 @@
-<p>{{burger}}</p>
+{{#each burger}}
+{{#unless devoured}}
+<p>{{burger_name}}<button>devoure it!</button></p>
+{{/unless}}
+{{/each}}
+
+{{#each burger}}
+{{#if devoured}}
+<p><del>{{burger_name}}</del></p>
+{{/if}}
+{{/each}}
+
+<form>
+    <label for="burgerName"></label><br>
+    <input type="text" id="burgerName" name="burgerName">
+    <button type="submit">submit</button>
+</form>
