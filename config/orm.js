@@ -12,10 +12,15 @@ const orm = {
     },
     insertOne: function (burgerName) {
         const queryString = "INSERT INTO burger (burger_name, devoured) VALUES (?, 0);";
-        connection.query(queryString, burgerName);
+        connection.query(queryString, burgerName, function (err) {
+            if (err) throw err;
+        });
     },
-    updateOne: function () {
-
+    updateOne: function (burgerId) {
+        const queryString = "UPDATE burger SET devoured = 1 WHERE id = ?;";
+        connection.query(queryString, burgerId, function (err) {
+            if (err) throw err;
+        })
     }
 };
 

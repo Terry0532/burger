@@ -10,6 +10,9 @@ const burger = {
     },
     insertOne: function (burgerName) {
         orm.insertOne(burgerName);
+    },
+    updateOne: function (burgerId) {
+        orm.updateOne(burgerId);
     }
 };
 
